@@ -1,342 +1,342 @@
-# Network Traffic Anomaly Detector using CUSUM Algorithm
+# Detector de Anomalías en Tráfico de Red usando Algoritmo CUSUM
 
-## 🌐 Project Overview
+## 🌐 Descripción del Proyecto
 
-This project implements a real-time network traffic anomaly detection system using the CUSUM (Cumulative Sum) algorithm. The system simulates network traffic, introduces random attacks (DoS/DDoS), and detects these anomalies through visual and auditory alerts. It features an interactive graphical interface built with Python, making it an excellent educational tool for understanding cybersecurity concepts and mathematical algorithms applied to network security.
+Este proyecto implementa un sistema de detección de anomalías en tráfico de red en tiempo real utilizando el algoritmo CUSUM (Suma Acumulativa). El sistema simula tráfico de red, introduce ataques aleatorios (DoS/DDoS), y detecta estas anomalías a través de alertas visuales y auditivas. Cuenta con una interfaz gráfica interactiva construida con Python, convirtiéndolo en una excelente herramienta educativa para entender conceptos de ciberseguridad y algoritmos matemáticos aplicados a la seguridad de redes.
 
 ![Python](https://img.shields.io/badge/python-v3.6+-blue.svg)
 ![Matplotlib](https://img.shields.io/badge/matplotlib-latest-green.svg)
 ![NumPy](https://img.shields.io/badge/numpy-latest-orange.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-## 🚀 Quick Start
+## 🚀 Inicio Rápido
 
 ```bash
-# Clone the repository
+# Clonar el repositorio
 git clone https://github.com/Asassintin/Detector-de-anomalias.git
 cd Detector-de-anomalias
 
-# Install dependencies
+# Instalar dependencias
 pip install numpy matplotlib
 
-# Run the application (GUI version)
+# Ejecutar la aplicación (versión GUI)
 python "detector_anomalias v2.py"
 
-# OR run static version (headless compatible)
+# O ejecutar versión estática (compatible con headless)
 cd "Detector de anomalias Versiones"
 python "deteccion_anomalias Estatico.py"
 ```
 
-## 🎯 Key Features
+## 🎯 Características Principales
 
-- **Real-time Anomaly Detection**: Uses CUSUM algorithm for statistical anomaly detection
-- **Interactive GUI**: Beautiful Tkinter-based interface with real-time visualizations
-- **Dual Threshold Detection**: Implements both fixed and adaptive statistical thresholds
-- **Attack Simulation**: Simulates DoS/DDoS attacks with configurable parameters
-- **Visual Alerts**: Real-time graphs showing traffic patterns and anomaly detection
-- **Audio Notifications**: Sound alerts when anomalies are detected (Windows)
-- **Mathematical Explanation**: Built-in educational content explaining the CUSUM algorithm
-- **Multiple Versions**: Different implementations for learning and comparison
+- **Detección de Anomalías en Tiempo Real**: Utiliza el algoritmo CUSUM para detección estadística de anomalías
+- **GUI Interactiva**: Hermosa interfaz basada en Tkinter con visualizaciones en tiempo real
+- **Detección de Doble Umbral**: Implementa umbrales fijos y estadísticos adaptativos
+- **Simulación de Ataques**: Simula ataques DoS/DDoS con parámetros configurables
+- **Alertas Visuales**: Gráficos en tiempo real mostrando patrones de tráfico y detección de anomalías
+- **Notificaciones de Audio**: Alertas sonoras cuando se detectan anomalías (Windows)
+- **Explicación Matemática**: Contenido educativo integrado explicando el algoritmo CUSUM
+- **Múltiples Versiones**: Diferentes implementaciones para aprendizaje y comparación
 
-## 📊 Mathematical Foundation
+## 📊 Fundamento Matemático
 
-### CUSUM Algorithm
+### Algoritmo CUSUM
 
-The Cumulative Sum (CUSUM) algorithm is a statistical method for detecting abrupt changes in time series data. In network security context, it helps identify traffic deviations that may indicate attacks.
+El algoritmo de Suma Acumulativa (CUSUM) es un método estadístico para detectar cambios abruptos en datos de series temporales. En el contexto de seguridad de redes, ayuda a identificar desviaciones de tráfico que pueden indicar ataques.
 
-**Mathematical Formula:**
+**Fórmula Matemática:**
 ```
 S₀ = 0
 Sₜ = max(0, Sₜ₋₁ + (xₜ - μ))
 ```
 
-Where:
-- `Sₜ`: Cumulative sum at time t
-- `xₜ`: Traffic value at time t
-- `μ`: Baseline (normal traffic mean)
-- `max(0,·)`: Prevents negative accumulation
+Donde:
+- `Sₜ`: Suma acumulativa en el tiempo t
+- `xₜ`: Valor de tráfico en el tiempo t
+- `μ`: Línea base (media del tráfico normal)
+- `max(0,·)`: Previene acumulación negativa
 
-### Threshold Detection
+### Detección de Umbrales
 
-The system uses two detection methods:
+El sistema utiliza dos métodos de detección:
 
-1. **Fixed Threshold**: `Sₜ > h` (where h = 2000)
-2. **Statistical Threshold**: `Sₜ > μw + k·σw` (where k = 2.5)
+1. **Umbral Fijo**: `Sₜ > h` (donde h = 2000)
+2. **Umbral Estadístico**: `Sₜ > μw + k·σw` (donde k = 2.5)
 
-## 📁 Repository Structure
+## 📁 Estructura del Repositorio
 
-### 🐍 Python Implementation Files
+### 🐍 Archivos de Implementación en Python
 
-- **`detector_anomalias v2.py`** - Main application with GUI and real-time detection
-- **`Detector de anomalias Versiones/`** - Directory containing different versions:
-  - `detector_anomalias v2 -corregido.py` - Corrected version 2
-  - `detector_anomalias v3 - copia.py` - Version 3 with enhanced features
-  - `deteccion_anomalias Estatico.py` - Static analysis version without GUI
+- **`detector_anomalias v2.py`** - Aplicación principal con GUI y detección en tiempo real
+- **`Detector de anomalias Versiones/`** - Directorio que contiene diferentes versiones:
+  - `detector_anomalias v2 -corregido.py` - Versión 2 corregida
+  - `detector_anomalias v3 - copia.py` - Versión 3 con características mejoradas
+  - `deteccion_anomalias Estatico.py` - Versión de análisis estático sin GUI
 
-### 📚 Documentation Files
+### 📚 Archivos de Documentación
 
-- **`documento_tecnico_detector_anomalias.md`** - Complete technical documentation (Spanish)
-- **`codigo_comentado_detector_anomalias.md`** - Detailed code documentation with comments
-- **`Proyecto Detección de Anomalías en Tráfico de Red.md`** - Project description and mathematical foundations
-- **`Explicacion Codigo.txt`** - Code explanation and architecture overview
+- **`documento_tecnico_detector_anomalias.md`** - Documentación técnica completa (Español)
+- **`codigo_comentado_detector_anomalias.md`** - Documentación detallada del código con comentarios
+- **`Proyecto Detección de Anomalías en Tráfico de Red.md`** - Descripción del proyecto y fundamentos matemáticos
+- **`Explicacion Codigo.txt`** - Explicación del código y resumen de arquitectura
 
-### 🎥 Media Files
+### 🎥 Archivos Multimedia
 
-- **`Demo Detector de Anomalias.mp4`** - Video demonstration of the application
-- **`Documento Técnico Detector de Anomalías en Tráfico de Red.pdf`** - PDF version of technical documentation
-- **`Proyecto Mates.docx`** - Mathematical project documentation
+- **`Demo Detector de Anomalias.mp4`** - Video demostración de la aplicación
+- **`Documento Técnico Detector de Anomalías en Tráfico de Red.pdf`** - Versión PDF de la documentación técnica
+- **`Proyecto Mates.docx`** - Documentación del proyecto matemático
 
-## 🚀 Installation and Setup
+## 🚀 Instalación y Configuración
 
-### Prerequisites
+### Prerrequisitos
 
-- Python 3.6 or higher
-- pip package manager
+- Python 3.6 o superior
+- Gestor de paquetes pip
 
-### Required Dependencies
+### Dependencias Requeridas
 
 ```bash
 pip install numpy matplotlib
 ```
 
-### System Requirements
+### Requisitos del Sistema
 
-**For GUI Version (`detector_anomalias v2.py`):**
-- `tkinter` - GUI interface (included with most Python installations)
-- `winsound` - Audio alerts (Windows only, optional)
-- Display environment (not suitable for headless servers)
+**Para la Versión GUI (`detector_anomalias v2.py`):**
+- `tkinter` - Interfaz GUI (incluido con la mayoría de instalaciones de Python)
+- `winsound` - Alertas de audio (Solo Windows, opcional)
+- Entorno de visualización (no adecuado para servidores headless)
 
-**For Static Analysis Version (`deteccion_anomalias Estatico.py`):**
-- Works in headless environments
-- No GUI dependencies required
-- Suitable for server environments and batch processing
+**Para la Versión de Análisis Estático (`deteccion_anomalias Estatico.py`):**
+- Funciona en entornos headless
+- No requiere dependencias de GUI
+- Adecuado para entornos de servidor y procesamiento por lotes
 
-### Additional Dependencies (Built-in)
-- `random` - For attack simulation
-- `datetime` - For timestamp formatting
+### Dependencias Adicionales (Integradas)
+- `random` - Para simulación de ataques
+- `datetime` - Para formateo de marcas de tiempo
 
-## 🎮 Usage Instructions
+## 🎮 Instrucciones de Uso
 
-### Running the Main Application (GUI Version)
+### Ejecutar la Aplicación Principal (Versión GUI)
 
 ```bash
 python "detector_anomalias v2.py"
 ```
 
-**Note**: Requires a display environment (desktop/GUI). Not suitable for headless servers.
+**Nota**: Requiere un entorno de visualización (escritorio/GUI). No adecuado para servidores headless.
 
-### Running the Static Analysis Version
+### Ejecutar la Versión de Análisis Estático
 
 ```bash
 cd "Detector de anomalias Versiones"
 python "deteccion_anomalias Estatico.py"
 ```
 
-**Features**: Works in any environment, generates static plots, suitable for batch analysis.
+**Características**: Funciona en cualquier entorno, genera gráficos estáticos, adecuado para análisis por lotes.
 
-### Alternative Versions
+### Versiones Alternativas
 
 ```bash
-# Enhanced version with themes
+# Versión mejorada con temas
 python "Detector de anomalias Versiones/detector_anomalias v3 - copia.py"
 
-# Corrected version 2
+# Versión 2 corregida
 python "Detector de anomalias Versiones/detector_anomalias v2 -corregido.py"
 ```
 
-### Application Interface
+### Interfaz de la Aplicación
 
-1. **Splash Screen**: Professional loading animation
-2. **Main Interface**: 
-   - Real-time traffic visualization
-   - Cumulative sum graph with thresholds
-   - Control buttons (Start/Restart simulation)
-   - Information displays
-3. **Mathematical Explanation**: Click "?" button for CUSUM theory
+1. **Pantalla de Inicio**: Animación de carga profesional
+2. **Interfaz Principal**: 
+   - Visualización de tráfico en tiempo real
+   - Gráfico de suma acumulativa con umbrales
+   - Botones de control (Iniciar/Reiniciar simulación)
+   - Pantallas de información
+3. **Explicación Matemática**: Haz clic en el botón "?" para la teoría CUSUM
 
-### Interface Controls
+### Controles de Interfaz
 
-- **Start/Restart**: Begin or reset the simulation
-- **Theme Toggle**: Switch between light and dark themes (v3)
-- **Speed Control**: Adjust simulation speed (v3)
-- **Help**: Access mathematical explanations
+- **Iniciar/Reiniciar**: Comenzar o reiniciar la simulación
+- **Alternador de Tema**: Cambiar entre temas claro y oscuro (v3)
+- **Control de Velocidad**: Ajustar velocidad de simulación (v3)
+- **Ayuda**: Acceder a explicaciones matemáticas
 
-## 🔧 System Architecture
+## 🔧 Arquitectura del Sistema
 
-### Core Classes
+### Clases Principales
 
 1. **`DetectorAnomalias`**: 
-   - Implements CUSUM algorithm
-   - Generates simulated traffic data
-   - Manages threshold calculations
-   - Handles anomaly detection logic
+   - Implementa el algoritmo CUSUM
+   - Genera datos de tráfico simulado
+   - Gestiona cálculos de umbrales
+   - Maneja la lógica de detección de anomalías
 
 2. **`AplicacionTiempoReal`**: 
-   - Manages GUI interface
-   - Handles real-time visualization
-   - Controls animation and updates
-   - Manages user interactions
+   - Gestiona la interfaz GUI
+   - Maneja la visualización en tiempo real
+   - Controla animación y actualizaciones
+   - Gestiona interacciones del usuario
 
 3. **`ExplicacionMatematica`**: 
-   - Provides educational content
-   - Explains CUSUM algorithm
-   - Interactive help system
+   - Proporciona contenido educativo
+   - Explica el algoritmo CUSUM
+   - Sistema de ayuda interactivo
 
 4. **`PantallaCarga`**: 
-   - Professional loading screen
-   - Smooth animations
+   - Pantalla de carga profesional
+   - Animaciones suaves
 
-### Data Flow
+### Flujo de Datos
 
 ```
-Traffic Generation → CUSUM Calculation → Threshold Comparison → Anomaly Detection → Visual/Audio Alerts
+Generación de Tráfico → Cálculo CUSUM → Comparación de Umbrales → Detección de Anomalías → Alertas Visuales/Audio
 ```
 
-## 📈 Algorithm Parameters
+## 📈 Parámetros del Algoritmo
 
-### Traffic Simulation
-- **Normal Traffic Mean**: 100 packets/second
-- **Normal Traffic Std Dev**: 15 packets/second
-- **Attack Multiplier**: 3x normal traffic
-- **Attack Duration**: 0.5 seconds
-- **Simulation Window**: 60 seconds
-- **Sampling Rate**: 60 samples/second
+### Simulación de Tráfico
+- **Media de Tráfico Normal**: 100 paquetes/segundo
+- **Desviación Estándar de Tráfico Normal**: 15 paquetes/segundo
+- **Multiplicador de Ataque**: 3x tráfico normal
+- **Duración del Ataque**: 0.5 segundos
+- **Ventana de Simulación**: 60 segundos
+- **Tasa de Muestreo**: 60 muestras/segundo
 
-### Detection Thresholds
-- **Fixed Threshold**: 2000
-- **Statistical Threshold**: μ + 2.5σ (adaptive)
-- **Window Size**: 5 seconds for statistical calculations
+### Umbrales de Detección
+- **Umbral Fijo**: 2000
+- **Umbral Estadístico**: μ + 2.5σ (adaptativo)
+- **Tamaño de Ventana**: 5 segundos para cálculos estadísticos
 
-## 🛡️ Security Applications
+## 🛡️ Aplicaciones de Seguridad
 
-This system demonstrates detection of:
+Este sistema demuestra la detección de:
 
-- **DoS (Denial of Service)** attacks
-- **DDoS (Distributed Denial of Service)** attacks
-- **Network flooding** attacks
-- **Traffic anomalies** and unusual patterns
+- Ataques **DoS (Denegación de Servicio)**
+- Ataques **DDoS (Denegación de Servicio Distribuida)**
+- Ataques de **inundación de red**
+- **Anomalías de tráfico** y patrones inusuales
 
-## 📊 Visualization Features
+## 📊 Características de Visualización
 
-### Real-time Graphs
-1. **Traffic Volume Graph**: Shows network traffic over time
-2. **Cumulative Sum Graph**: Displays CUSUM values and thresholds
-3. **Anomaly Highlighting**: Visual markers for detected attacks
-4. **Threshold Lines**: Both fixed and adaptive thresholds
+### Gráficos en Tiempo Real
+1. **Gráfico de Volumen de Tráfico**: Muestra el tráfico de red a lo largo del tiempo
+2. **Gráfico de Suma Acumulativa**: Muestra valores CUSUM y umbrales
+3. **Resaltado de Anomalías**: Marcadores visuales para ataques detectados
+4. **Líneas de Umbral**: Tanto umbrales fijos como adaptativos
 
-### Alert System
-- **Visual Alerts**: Color changes and highlighting
-- **Audio Alerts**: Sound notifications (Windows)
-- **Information Display**: Attack timing and response metrics
+### Sistema de Alertas
+- **Alertas Visuales**: Cambios de color y resaltado
+- **Alertas de Audio**: Notificaciones sonoras (Windows)
+- **Pantalla de Información**: Métricas de tiempo de ataque y respuesta
 
-## 🎓 Educational Value
+## 🎓 Valor Educativo
 
-This project serves as an excellent educational tool for:
+Este proyecto sirve como una excelente herramienta educativa para:
 
-- **Cybersecurity**: Understanding attack detection methods
-- **Mathematics**: Practical application of statistical algorithms
-- **Programming**: GUI development and real-time data processing
-- **Data Analysis**: Time series analysis and anomaly detection
+- **Ciberseguridad**: Comprender métodos de detección de ataques
+- **Matemáticas**: Aplicación práctica de algoritmos estadísticos
+- **Programación**: Desarrollo de GUI y procesamiento de datos en tiempo real
+- **Análisis de Datos**: Análisis de series temporales y detección de anomalías
 
-## 📖 Documentation Languages
+## 📖 Idiomas de Documentación
 
-- **Spanish**: Original documentation (comprehensive technical details)
-- **English**: This README and code comments
-- **Mathematical Notation**: Universal mathematical expressions
+- **Español**: Documentación original (detalles técnicos completos)
+- **Inglés**: Este README y comentarios de código
+- **Notación Matemática**: Expresiones matemáticas universales
 
-## 🔍 Version Differences
+## 🔍 Diferencias entre Versiones
 
-### Version 2 (`detector_anomalias v2.py`)
-- Basic GUI implementation
-- Real-time detection
-- Fixed and statistical thresholds
-- Audio alerts
+### Versión 2 (`detector_anomalias v2.py`)
+- Implementación básica de GUI
+- Detección en tiempo real
+- Umbrales fijos y estadísticos
+- Alertas de audio
 
-### Version 2 Corrected (`detector_anomalias v2 -corregido.py`)
-- Bug fixes and improvements
-- Enhanced visualization
-- Better error handling
+### Versión 2 Corregida (`detector_anomalias v2 -corregido.py`)
+- Correcciones de errores y mejoras
+- Visualización mejorada
+- Mejor manejo de errores
 
-### Version 3 (`detector_anomalias v3 - copia.py`)
-- Dark/light theme support
-- Speed controls
-- Enhanced UI design
-- Additional configuration options
+### Versión 3 (`detector_anomalias v3 - copia.py`)
+- Soporte de tema oscuro/claro
+- Controles de velocidad
+- Diseño de UI mejorado
+- Opciones de configuración adicionales
 
-### Static Version (`deteccion_anomalias Estatico.py`)
-- Non-interactive analysis
-- Batch processing capability
-- Static visualizations and plots
-- Educational demonstrations
-- **Headless environment compatible**
-- Generates matplotlib figures
-- Timestamp-based analysis
+### Versión Estática (`deteccion_anomalias Estatico.py`)
+- Análisis no interactivo
+- Capacidad de procesamiento por lotes
+- Visualizaciones y gráficos estáticos
+- Demostraciones educativas
+- **Compatible con entornos headless**
+- Genera figuras matplotlib
+- Análisis basado en marcas de tiempo
 
-## 🤝 Contributing
+## 🤝 Contribuciones
 
-To contribute to this project:
+Para contribuir a este proyecto:
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Update documentation
-6. Submit a pull request
+1. Haz fork del repositorio
+2. Crea una rama de características
+3. Realiza tus cambios
+4. Añade pruebas si es aplicable
+5. Actualiza la documentación
+6. Envía un pull request
 
-## 📝 License
+## 📝 Licencia
 
-This project is available for educational and research purposes. Please refer to the original authors for commercial use permissions.
+Este proyecto está disponible para propósitos educativos y de investigación. Por favor, consulta con los autores originales para permisos de uso comercial.
 
-## 🏆 Project Context
+## 🏆 Contexto del Proyecto
 
-This project was developed as part of a mathematical and cybersecurity study, demonstrating the practical application of integral calculus concepts (cumulative sums) in network security. It showcases how mathematical algorithms can be applied to real-world cybersecurity challenges.
+Este proyecto fue desarrollado como parte de un estudio matemático y de ciberseguridad, demostrando la aplicación práctica de conceptos de cálculo integral (sumas acumulativas) en seguridad de redes. Muestra cómo los algoritmos matemáticos pueden aplicarse a desafíos de ciberseguridad del mundo real.
 
-## 🔧 Troubleshooting
+## 🔧 Solución de Problemas
 
-### Common Issues
+### Problemas Comunes
 
 **"No module named 'tkinter'"**
-- Solution: Install tkinter or use the static version
-- Alternative: `sudo apt-get install python3-tk` (Linux)
-- Use static version for headless environments
+- Solución: Instala tkinter o usa la versión estática
+- Alternativa: `sudo apt-get install python3-tk` (Linux)
+- Usa la versión estática para entornos headless
 
 **"No module named 'winsound'"**
-- Normal on non-Windows systems
-- Audio alerts will be disabled automatically
-- Does not affect core functionality
+- Normal en sistemas no Windows
+- Las alertas de audio se deshabilitarán automáticamente
+- No afecta la funcionalidad principal
 
-**GUI not displaying**
-- Ensure you have a display environment
-- Try the static version: `deteccion_anomalias Estatico.py`
-- For servers, use headless plotting with matplotlib
+**GUI no se muestra**
+- Asegúrate de tener un entorno de visualización
+- Prueba la versión estática: `deteccion_anomalias Estatico.py`
+- Para servidores, usa gráficos headless con matplotlib
 
-### Performance Tuning
+### Ajuste de Rendimiento
 
-**Detector not finding anomalies:**
-- Adjust `umbral_fijo` parameter (default: 2000)
-- Lower values = more sensitive detection
-- Higher values = fewer false positives
+**El detector no encuentra anomalías:**
+- Ajusta el parámetro `umbral_fijo` (predeterminado: 2000)
+- Valores más bajos = detección más sensible
+- Valores más altos = menos falsos positivos
 
-**Simulation too fast/slow:**
-- Modify `muestras_por_segundo` parameter
-- Adjust `ventana_tiempo` for simulation duration
+**Simulación muy rápida/lenta:**
+- Modifica el parámetro `muestras_por_segundo`
+- Ajusta `ventana_tiempo` para la duración de simulación
 
-## 🧪 Testing
+## 🧪 Pruebas
 
-The core detection algorithm has been validated:
-- ✅ CUSUM calculation accuracy
-- ✅ Anomaly detection with configurable thresholds  
-- ✅ Attack simulation with realistic parameters
-- ✅ Response time measurement (typically < 0.5 seconds)
-- ✅ Cross-platform compatibility (Windows/Linux/Mac)
+El algoritmo central de detección ha sido validado:
+- ✅ Precisión del cálculo CUSUM
+- ✅ Detección de anomalías con umbrales configurables
+- ✅ Simulación de ataques con parámetros realistas
+- ✅ Medición de tiempo de respuesta (típicamente < 0.5 segundos)
+- ✅ Compatibilidad multiplataforma (Windows/Linux/Mac)
 
-## 📞 Support
+## 📞 Soporte
 
-For questions or support:
-- Review the technical documentation in `documento_tecnico_detector_anomalias.md`
-- Check code comments in `codigo_comentado_detector_anomalias.md`
-- Watch the demonstration video `Demo Detector de Anomalias.mp4`
+Para preguntas o soporte:
+- Revisa la documentación técnica en `documento_tecnico_detector_anomalias.md`
+- Consulta los comentarios del código en `codigo_comentado_detector_anomalias.md`
+- Ve el video de demostración `Demo Detector de Anomalias.mp4`
 
 ---
 
-*This project demonstrates the intersection of mathematics, programming, and cybersecurity through practical implementation of anomaly detection algorithms.*
+*Este proyecto demuestra la intersección de matemáticas, programación y ciberseguridad a través de la implementación práctica de algoritmos de detección de anomalías.*
