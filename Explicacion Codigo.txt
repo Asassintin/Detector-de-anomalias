@@ -1,0 +1,77 @@
+
+# Detector de Anomalías en Tráfico de Red con CUSUM
+
+## Descripción
+Este proyecto implementa un sistema de detección de anomalías en tráfico de red utilizando el algoritmo CUSUM (Cumulative Sum). La aplicación simula tráfico de red, inserta ataques aleatorios y detecta estas anomalías en tiempo real, visualizando tanto el tráfico como las métricas de detección.
+
+## Requisitos
+- Python 3.6+
+- NumPy
+- Matplotlib
+- Tkinter
+- winsound (para Windows)
+
+## Instalación
+```bash
+pip install numpy matplotlib
+```
+
+## Funcionamiento
+El sistema utiliza el algoritmo CUSUM para detectar desviaciones significativas en el tráfico de red. Este método es especialmente efectivo para identificar cambios abruptos en series temporales, como los producidos por ataques de denegación de servicio (DDoS).
+
+### Algoritmo CUSUM
+El algoritmo se basa en calcular la suma acumulada de desviaciones respecto a una línea base:
+
+1. **Inicialización**: S₀ = 0
+2. **Fórmula recursiva**: Sₜ = max(0, Sₜ₋₁ + (xₜ - μ))
+
+Donde:
+- Sₜ: Suma acumulada hasta el tiempo t
+- xₜ: Valor del tráfico en el tiempo t
+- μ: Media del tráfico normal (línea base)
+
+Se detecta una anomalía cuando Sₜ supera un umbral predefinido.
+
+## Componentes principales
+
+### 1. DetectorAnomalias
+Clase que implementa el algoritmo CUSUM para la detección de anomalías:
+- Genera datos simulados con ataques aleatorios
+- Calcula la suma acumulada de desviaciones
+- Implementa umbrales fijos y estadísticos para la detección
+
+### 2. AplicacionTiempoReal
+Clase principal que implementa la interfaz gráfica:
+- Visualiza el tráfico de red en tiempo real
+- Muestra la suma acumulada y los umbrales
+- Emite alertas cuando se detectan anomalías
+- Proporciona controles para iniciar/reiniciar la simulación
+
+### 3. ExplicacionMatematica
+Ventana emergente que explica los fundamentos matemáticos del algoritmo CUSUM.
+
+### 4. PantallaCarga
+Implementa una animación profesional de inicio.
+
+## Características
+- Simulación de tráfico de red con ataques aleatorios
+- Visualización en tiempo real de datos y métricas
+- Interfaz gráfica intuitiva y atractiva
+- Alertas visuales y sonoras cuando se detectan anomalías
+- Explicación matemática del algoritmo implementado
+- Controles interactivos para la simulación
+
+## Ejecución
+```bash
+python detector_anomalias_v2.py
+```
+
+## Visualización
+La aplicación muestra dos gráficas principales:
+1. **Tráfico de Red**: Visualiza el volumen de tráfico en tiempo real
+2. **Suma Acumulada**: Muestra la suma acumulada CUSUM y los umbrales de detección
+
+Cuando se detecta una anomalía, se resalta la zona del ataque y se emite una alerta con información detallada sobre el momento de detección y el tiempo de respuesta.
+
+## Autor
+Este proyecto fue desarrollado como parte de un estudio sobre métodos de detección de anomalías en seguridad de redes.
